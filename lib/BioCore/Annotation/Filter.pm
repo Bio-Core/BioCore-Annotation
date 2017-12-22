@@ -41,6 +41,10 @@ the generic gene table which can then be used the mutation calling specific gene
 
 =item * filter_criteria: filter criteria used in the data
 
+=item * tool: name of mutation calling tool used (default: VarScan)
+
+=item * tool_version: version of pipeline used (default: v1601)
+
 =back
 
 =cut
@@ -220,6 +224,42 @@ sub add_sample_to_sample_hash {
     return 0;
     }
 
+=head2 $obj->add_gene_to_gene_hash()
+
+A method to add a gene to the gene hash.
+
+=head3 Arguments:
+
+=over 2
+
+=item * hash: the gene hash to use as a hash reference (required)
+
+=item * gene: name of gene to add to the hash if not already in hash (required)
+
+=back
+
+=cut
+
+sub add_gene_to_gene_hash {
+    my $self = shift;
+    my %args = validated_hash(
+        \@_,
+        hash => {
+            isa         => 'HashRef',
+            required    => 1
+            },
+        gene => {
+            isa         => 'Str',
+            required    => 1
+            }
+        );
+
+    if (!$args{'hash'}->{$args{'gene'}}) {
+        $args{'hash'}->{$args{'gene'}} = 1;
+        }
+    return 0;
+    }
+
 =head2 $obj->extract_sample_name_from_annovar_file()
 
 A method that extracts the name of the sample from an ANNOVAR output file.  Note that the file
@@ -265,6 +305,12 @@ sub extract_sample_name_from_annovar_file {
 Richard J. de Borja, C<< <richard.deborja at uhnresearch.ca> >>
 
 =head1 ACKNOWLEDGEMENT
+
+Carl Virtanen -- University Health Network
+
+Natalie Stickly -- University Health Network
+
+Zhibin Lu -- University Health Network
 
 =head1 BUGS
 
