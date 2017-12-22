@@ -1,7 +1,7 @@
 # BioCore-Annotation
 
 A set of Perl libraries used by the Bioinformatics Core group at the
-University Health Network (UHN) Princess Margaret Cancer Institute.
+University Health Network (UHN) Princess Margaret Research Institute.
 
 ## INSTALLATION
 
