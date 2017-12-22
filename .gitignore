@@ -1,0 +1,12 @@
+*.hg19_multianno.txt
+Makefile
+Makefile.old
+MANIFEST.bak
+MYMETA.yml
+*.tar
+*.gz
+blib/
+.build/
+_build/
+Build
+
