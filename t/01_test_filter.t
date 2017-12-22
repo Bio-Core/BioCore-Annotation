@@ -1,4 +1,4 @@
-use Test::More tests => 3;
+use Test::More tests => 4;
 use Test::Moose;
 use Test::Exception;
 use MooseX::ClassCompositor;
@@ -34,8 +34,17 @@ is($sample_name, $expected_sample_name, "Sample name matches expected: $sample_n
 
 
 # test the creation of the sample hash
-my %test_hash;
-$filter->add_sample_to_sample_hash(hash => \%test_hash, sample => $sample_name);
-$filter->add_sample_to_sample_hash(hash => \%test_hash, sample => "some_new_sample");
+my %_test_sample_hash;
+$filter->add_sample_to_sample_hash(hash => \%_test_sample_hash, sample => $sample_name);
+$filter->add_sample_to_sample_hash(hash => \%_test_sample_hash, sample => "some_new_sample");
 my %_expected_hash = ("sample_ABC" => 1, "some_new_sample" => 1);
-is_deeply(\%test_hash, \%_expected_hash, "Hash matches expected");
+is_deeply(\%_test_sample_hash, \%_expected_hash, "Sample hash matches expected");
+
+
+# test the creation of the gene hash
+my %_test_gene_hash;
+$filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "TP53");
+$filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "TP53");
+$filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "EGFR");
+my %_expected_gene_hash = ("TP53" => 1, "EGFR" => 1);
+is_deeply(\%_test_gene_hash, \%_expected_gene_hash, "Gene hash matches expected");
