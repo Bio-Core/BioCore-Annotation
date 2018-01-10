@@ -308,7 +308,7 @@ Richard J. de Borja, C<< <richard.deborja at uhnresearch.ca> >>
 
 Carl Virtanen -- University Health Network
 
-Natalie Stickly -- University Health Network
+Natalie Stickle -- University Health Network
 
 Zhibin Lu -- University Health Network
 
