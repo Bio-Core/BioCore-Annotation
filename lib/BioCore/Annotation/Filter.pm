@@ -18,8 +18,6 @@ A Perl role for handling various filtering methods.
 
 =head1 ATTRIBUTES AND DELEGATES
 
-
-
 =head1 SUBROUTINES/METHODS
 
 =head2 $obj->make_gene_table()
@@ -297,6 +295,7 @@ sub extract_sample_name_from_annovar_file {
     if ($args{'file'} =~ m/$args{'suffix'}$/) {
         $sample_name = File::Basename::basename($args{'file'}, ($args{'suffix'}));
         }
+
     return $sample_name;
     }
 
@@ -306,11 +305,11 @@ Richard J. de Borja, C<< <richard.deborja at uhnresearch.ca> >>
 
 =head1 ACKNOWLEDGEMENT
 
-Carl Virtanen -- University Health Network
+Zhibin Lu -- University Health Network
 
 Natalie Stickle -- University Health Network
 
-Zhibin Lu -- University Health Network
+Carl Virtanen -- University Health Network
 
 =head1 BUGS
 

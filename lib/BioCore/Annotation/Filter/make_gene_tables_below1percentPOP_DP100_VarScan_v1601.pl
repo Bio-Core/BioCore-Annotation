@@ -70,9 +70,9 @@ while (defined($filename=readdir(DIR)))
 	}
 }	
 
-print Dumper(\%SAMPLENAMEhash);
-print Dumper(\%GENENAMEhash);
-exit;
+# print Dumper(\%SAMPLENAMEhash);
+# print Dumper(\%GENENAMEhash);
+# exit;
 
 foreach my $sample (sort keys %SAMPLENAMEhash)
 {
