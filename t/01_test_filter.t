@@ -38,6 +38,7 @@ my %_test_sample_hash;
 $filter->add_sample_to_sample_hash(hash => \%_test_sample_hash, sample => $sample_name);
 $filter->add_sample_to_sample_hash(hash => \%_test_sample_hash, sample => "some_new_sample");
 my %_expected_hash = ("sample_ABC" => 1, "some_new_sample" => 1);
+print Dumper(\%_test_sample_hash);
 is_deeply(\%_test_sample_hash, \%_expected_hash, "Sample hash matches expected");
 
 
@@ -47,4 +48,5 @@ $filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "TP53");
 $filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "TP53");
 $filter->add_gene_to_gene_hash(hash => \%_test_gene_hash, gene => "EGFR");
 my %_expected_gene_hash = ("TP53" => 1, "EGFR" => 1);
+print Dumper(\%_test_gene_hash);
 is_deeply(\%_test_gene_hash, \%_expected_gene_hash, "Gene hash matches expected");
